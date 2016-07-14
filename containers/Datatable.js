@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
-import '../node_modules/fixed-data-table/dist/fixed-data-table.min.css'
 import { fetchGymsIfNeeded } from '../actions'
-
+import Gyms from '../components/Gyms'
+import Header from '../components/Header'
 
 class Datatable extends Component {
 
@@ -16,15 +16,19 @@ class Datatable extends Component {
 
   }
 
+
   render() {
     const { gyms } = this.props
-    console.log(gyms)
     return (
-      <ul>
-        {gyms.map((gym, i) =>
-          <li key={i}>{gym.name}</li>
-        )}
-      </ul>
+      <body>
+      <Header />
+        <ul>
+        <div>{gyms.length}feaef</div>
+        {gyms.length>0 &&
+          <Gyms gyms={gyms}/>
+        }
+        </ul>
+      </body>
     )
   }
 }
@@ -35,14 +39,11 @@ Datatable.propTypes = {
 }
 
 function mapStateToProps(state, ownProps) {
-  const {
-    items: gyms
-  } = { items: []};
-
+  console.log(state.gyms.items)
   return {
     id: ownProps.params.id,
     filter: ownProps.location.query.filter,
-    gyms
+    gyms: state.gyms.items || []
   };
 }
 
