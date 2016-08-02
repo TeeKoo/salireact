@@ -1,3 +1,7 @@
 .max300{
 
 }
+.paginate_button {
+  padding: 5px;
+  cursor: pointer;
+}

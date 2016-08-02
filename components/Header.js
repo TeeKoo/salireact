@@ -26,7 +26,6 @@ class Header extends Component {
                 <li><a href="/salit">Salit</a></li>
                 <li><a href="/ohjelma">3x5 Ohjelma</a></li>
               </ul>
-                <Search />
               </div>
           </div>
       </nav>

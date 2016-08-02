@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { fetchGymsIfNeeded } from '../actions'
 import Gyms from '../components/Gyms'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 class Datatable extends Component {
 
@@ -23,11 +24,11 @@ class Datatable extends Component {
       <body>
       <Header />
         <ul>
-        <div>{gyms.length}feaef</div>
         {gyms.length>0 &&
           <Gyms gyms={gyms}/>
         }
         </ul>
+        <Footer />
       </body>
     )
   }

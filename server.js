@@ -32,7 +32,7 @@ app.get("/ohjelma", function(req, res) {
 })
 app.get("/getgyms", function(req, res) {
 
-  connection.query('SELECT * FROM gyms', function(err, rows, fields) {
+  connection.query('SELECT *, (SELECT COUNT(id) FROM comments WHERE comments.gym_id=gyms.id) as comment_count FROM gyms', function(err, rows, fields) {
     if (err){
       console.log(err)
       res.json({error: "error"});
