@@ -10,10 +10,11 @@ class Gym extends Component {
   render() {
     return (
           <tr>
-            <td>{this.props.data.name}</td>
+            <td onClick={this.dostuff}>{this.props.data.name}</td>
             <td>{this.removeBr(this.props.data.address)}</td>
             <td>{this.props.data.upvotes}</td>
-            <td>{this.props.data.comment_count}</td>
+            <td>{this.props.data.commentCount}</td>
+            <td>{this.props.data.id}</td>
           </tr>
         )
   }

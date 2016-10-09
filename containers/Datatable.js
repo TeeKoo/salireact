@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react'
-import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import { fetchGymsIfNeeded } from '../actions'
 import Gyms from '../components/Gyms'
@@ -10,7 +9,7 @@ class Datatable extends Component {
 
   componentDidMount() {
     const { dispatch } = this.props
-    dispatch(fetchGymsIfNeeded("reactjs"))
+    dispatch(fetchGymsIfNeeded())
   }
 
   componentWillReceiveProps(nextProps) {
@@ -21,15 +20,15 @@ class Datatable extends Component {
   render() {
     const { gyms } = this.props
     return (
-      <body>
-      <Header />
-        <ul>
-        {gyms.length>0 &&
-          <Gyms gyms={gyms}/>
-        }
-        </ul>
-        <Footer />
-      </body>
+      <div>
+        <Header />
+           <ul>
+             {gyms.length>0 &&
+               <Gyms gyms={gyms}/>
+             }
+           </ul>
+         <Footer />
+      </div>
     )
   }
 }
@@ -40,7 +39,6 @@ Datatable.propTypes = {
 }
 
 function mapStateToProps(state, ownProps) {
-  console.log(state.gyms.items)
   return {
     id: ownProps.params.id,
     filter: ownProps.location.query.filter,

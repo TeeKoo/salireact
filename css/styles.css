@@ -5,3 +5,25 @@
   padding: 5px;
   cursor: pointer;
 }
+.navbar-nav a:hover, .navbar-brand:hover{
+  cursor: pointer;
+}
+.thesalidatatable tr:hover{
+  cursor: pointer;
+  background-color: #f4f4f4;
+}
+.gym-heading{
+  overflow: hidden;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #dedede;
+}
+.likes{
+  padding: 5px;
+  font-size: 25px !important;
+  cursor: pointer;
+}
+.votenumbers{
+  font-size: 20px;
+  font-family: Helvetica;
+  color: #414141;
+}

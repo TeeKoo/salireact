@@ -7,6 +7,7 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import App from './containers/App'
 import Program from './containers/Program'
 import Datatable from './containers/Datatable'
+import SingleGym from './containers/SingleGym'
 import configureStore from './store/configureStore'
 import './css/index.css'
 import './css/styles.css'
@@ -23,6 +24,7 @@ render(
       <Route path="/" component={App} />
       <Route path="/salit" component={Datatable}/>
       <Route path="/ohjelma" component={Program}/>
+      <Route path="/salit/:saliid" component={SingleGym}/>
     </Router>
   </Provider>,
   document.getElementById('root')

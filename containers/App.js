@@ -11,15 +11,15 @@ import { Link  } from 'react-router'
 
 class App extends Component {
   render() {
-    const { todos, actions } = this.props
+    const { actions } = this.props
     var styles = {
       marginTop: '50px'
     }
     return (
-      <body>
+      <div>
         <Header />
         <Jumbotron />
-        <div className="container" style={styles} todos={todos}>
+        <div className="container" style={styles}>
             <div className="row">
                 <Introheader
                 glyph="fa fa-search front_glyph"
@@ -37,13 +37,12 @@ class App extends Component {
         </div>
         <Social />
         <Footer />
-      </body>
+      </div>
     )
   }
 }
 
 App.propTypes = {
-  todos: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 }
 

@@ -3,9 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import Social from '../components/Social'
-import Jumbotron from '../components/Jumbotron'
-import Introheader from '../components/Introheader'
+
 import * as TodoActions from '../actions'
 
 class Program extends Component {
@@ -15,7 +13,7 @@ class Program extends Component {
       marginTop: '50px'
     }
     return (
-      <body>
+      <div>
         <Header />
         <div className="container">
         <h1>3x5 Ohjelma</h1>
@@ -96,13 +94,12 @@ class Program extends Component {
       </div>
     </div>
         <Footer />
-      </body>
+      </div>
     )
   }
 }
 
 Program.propTypes = {
-  todos: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 }
 

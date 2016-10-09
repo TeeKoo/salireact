@@ -1,14 +1,12 @@
 import React, { PropTypes, Component } from 'react'
-import TodoTextInput from './TodoTextInput'
-import Search from './Search'
+import { browserHistory } from 'react-router'
 
 class Header extends Component {
-  handleSave(text) {
-    if (text.length !== 0) {
-      this.props.addTodo(text)
-    }
-  }
 
+  navigate(event, url){
+      event.preventDefault();
+      browserHistory.push(url)
+  }
   render() {
     const { alertStuff } = this.props
     return (
@@ -19,12 +17,12 @@ class Header extends Component {
                   <span className="sr-only">Toggle navigation</span>
                   <span className="fa fa-bars"></span>
                 </button>
-                <a className="navbar-brand" href="/">Suomen salit</a>
+                <a className="navbar-brand" onClick={() => { this.navigate(event, '/') }}>Suomen salit</a>
               </div>
               <div id="navbar" className="navbar-collapse collapse">
               <ul className="nav navbar-nav">
-                <li><a href="/salit">Salit</a></li>
-                <li><a href="/ohjelma">3x5 Ohjelma</a></li>
+                <li><a onClick={() => { this.navigate(event, '/salit') }}>Salit</a></li>
+                <li><a onClick={() => { this.navigate(event, '/ohjelma') }}>3x5 Ohjelma</a></li>
               </ul>
               </div>
           </div>
