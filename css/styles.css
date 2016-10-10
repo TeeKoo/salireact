@@ -27,3 +27,11 @@
   font-family: Helvetica;
   color: #414141;
 }
+.thumbnail{
+  text-align: center;
+}
+.avataricon{
+  font-size: 44px !important;
+  padding: 5px;
+  color: #4582ec;
+}

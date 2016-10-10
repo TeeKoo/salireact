@@ -62,7 +62,13 @@ class SingleGym extends Component {
                                 <span className="fa fa-thumbs-down likes" style={styles.neutral}> <span className="votenumbers">{gym.downvotes || 0}</span></span>
                             </div>
                         </div>
-                        { gym.comments ? <Comments comments={gym.comments}  /> : ''}
+                    </div>
+                    <div className="row" style={styles.container}>
+                        {gym.comments && gym.comments.map(function(comment, i){
+                            return <Comments key={comment.id} comment={comment.comment} user={comment.posted_by} created_at={comment.created_at}/>
+                        })}
+                    </div>
+                    <div className="row">
                         <CommentArea saliParam={this.props.params.saliid} />
                     </div>
                 </div>
