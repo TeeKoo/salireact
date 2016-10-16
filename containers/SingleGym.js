@@ -61,7 +61,7 @@ class SingleGym extends Component {
         var iframeUrl = "";
         if (gym.address) {
             loader = "";
-            iframeUrl = '//www.google.com/maps/embed/v1/place?q='+gym.address.replace(/<br\/>/g, " ")+'&zoom=17&key=AIzaSyBBLo4I0duRrx3pvcRG3-muCt1TIC4qyeU';
+            iframeUrl = '//www.google.com/maps/embed/v1/place?q='+encodeURI(gym.address.replace(/<br\/>/g, " "))    +'&zoom=17&key=AIzaSyBBLo4I0duRrx3pvcRG3-muCt1TIC4qyeU';
         } else {
             loader = <div>Ladataan..</div>;
         }
