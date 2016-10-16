@@ -28,7 +28,9 @@ class CommentArea extends Component {
 
     sendComment(){
         const { dispatch } = this.props
-        dispatch(newComment(this.props.saliParam, this.state.name, this.state.comment));
+        dispatch(newComment(this.props.saliParam, this.state.name, this.state.comment)).then(function(fae){
+            location.reload();
+        });
     }
     render() {
         var style = {

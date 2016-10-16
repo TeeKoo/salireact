@@ -27,6 +27,22 @@ function postComment(json) {
     }
 }
 
+function receiveLike(json) {
+    return {
+        type: types.LIKE,
+        like: json,
+        receivedAt: Date.now()
+    }
+}
+
+function receiveDislike(json) {
+    return {
+        type: types.LIKE,
+        like: json,
+        receivedAt: Date.now()
+    }
+}
+
 function sendComment(gym_id, name, comment) {
     return dispatch => {
         return fetch(apiurls.COMMENT_URL+gym_id, {
@@ -44,6 +60,23 @@ function sendComment(gym_id, name, comment) {
         .then(json => dispatch(postComment(json)))
     }
 }
+
+function like(gym_id) {
+    return dispatch => {
+        return fetch(apiurls.LIKE_URL+gym_id)
+            .then(response => response.json())
+            .then(json => dispatch(receiveLike(json)))
+    }
+}
+
+function dislike(gym_id) {
+    return dispatch => {
+        return fetch(apiurls.DISLIKE_URL+gym_id)
+            .then(response => response.json())
+            .then(json => dispatch(receiveDislike(json)))
+    }
+}
+
 function fetchGyms() {
   return dispatch => {
     return fetch(apiurls.SEARCH_URL)
@@ -75,5 +108,17 @@ export function fetchGymIfNeeded(gym_id) {
 export function newComment(gym_id, name, comment){
     return (dispatch, getState) => {
         return dispatch(sendComment(gym_id, name, comment))
+    }
+}
+
+export function likeGym(gym_id){
+    return (dispatch, getState) => {
+        return dispatch(like(gym_id))
+    }
+}
+
+export function dislikeGym(gym_id){
+    return (dispatch, getState) => {
+        return dispatch(dislike(gym_id))
     }
 }

@@ -11,7 +11,6 @@ class Comments extends Component {
             marginTop: '50px',
             button: {marginLeft: '10px'}
         }
-        console.log(this.props)
         let { comment, user, created_at } = this.props;
         return (
             <div className="clearfix">
@@ -24,7 +23,7 @@ class Comments extends Component {
                 <div className="col-sm-11 col-xs-12">
                     <div className="panel panel-primary">
                         <div className="panel-heading">
-                            <strong>{user}</strong> <span className="text-muted"> commented on {moment(created_at).format('DD.MM.YYYY')}</span>
+                            <strong>{user}</strong> <span className="text-muted"> {moment(created_at).format('DD.MM.YYYY')}</span>
                         </div>
                         <div className="panel-body">
                             {comment}

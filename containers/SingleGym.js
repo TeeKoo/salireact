@@ -6,8 +6,14 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Comments from '../components/Comments'
 import CommentArea from '../components/CommentArea'
-import { fetchGymIfNeeded } from '../actions'
+import { fetchGymIfNeeded, likeGym, dislikeGym } from '../actions'
 class SingleGym extends Component {
+
+    constructor(props) {
+        super(props);
+        this.like = this.like.bind(this);
+        this.dislike = this.dislike.bind(this);
+    }
 
     componentDidMount() {
         const { dispatch } = this.props
@@ -18,11 +24,30 @@ class SingleGym extends Component {
 
     }
 
+    like(){
+        const { dispatch } = this.props
+        dispatch(likeGym(this.props.params.saliid)).then(function(msg){
+            if (msg.like.message){
+                alert(msg.like.message)
+            }
+        });
+    }
+
+    dislike(){
+        const { dispatch } = this.props
+        dispatch(dislikeGym(this.props.params.saliid)).then(function(msg){
+            if (msg.like.message){
+                alert(msg.like.message)
+            }
+        });
+    }
+
+
     render() {
         var styles = {
             container: {marginTop: '50px'},
             liked: {color: '#4898d6'},
-            disliked: {color: '#4898d6'},
+            disliked: {color: '#bb2121'},
             neutral: {color: '#808080'},
             map: {
                 width: '100%',
@@ -40,7 +65,6 @@ class SingleGym extends Component {
         } else {
             loader = <div>Ladataan..</div>;
         }
-
         return (
             <div>
                 <Header />
@@ -58,8 +82,8 @@ class SingleGym extends Component {
                             <p><a href={gym.url}>{gym.url}</a></p>
                             <p>{gym.open}</p>
                             <div className="like-section">
-                                <span className="fa fa-thumbs-up likes" style={styles.neutral}> <span className="votenumbers">{gym.upvotes || 0}</span></span>
-                                <span className="fa fa-thumbs-down likes" style={styles.neutral}> <span className="votenumbers">{gym.downvotes || 0}</span></span>
+                                <span className="fa fa-thumbs-up likes" style={styles.liked} onClick={this.like}> <span className="votenumbers">{gym.upvotes || 0}</span></span>
+                                <span className="fa fa-thumbs-down likes" style={styles.disliked} onClick={this.dislike}> <span className="votenumbers">{gym.downvotes || 0}</span></span>
                             </div>
                         </div>
                     </div>
