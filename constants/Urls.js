@@ -1,4 +1,4 @@
-const URL = 'http://52.208.108.38';
+const URL = 'http://localhost:3000';
 export const SEARCH_URL = URL+'/api/gyms/'
 export const GYM_URL = URL+'/api/gyms/'
 export const COMMENT_URL = URL+'/api/comments/'
